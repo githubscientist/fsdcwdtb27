@@ -4,12 +4,12 @@
 
 ### Topics
 
-[x] What is Full stack Web development
-[x] What is Frontend, Backend & Databases
-[x] Introduction to web Browser JavaScript V8
-[x] Evolution of HTTP,HTTP Methods
-[x] How the Server looks at the URL
-[x] Request & Response cycle
+[x] What is Full stack Web development  
+[x] What is Frontend, Backend & Databases  
+[x] Introduction to web Browser JavaScript V8  
+[x] Evolution of HTTP,HTTP Methods  
+[x] How the Server looks at the URL  
+[x] Request & Response cycle  
 [x] Browser js vs Node js
 
 #### What is Full stack Web development
@@ -84,6 +84,14 @@ REST: Representational State Transfer
 - Restful APIs are based on the principles of REST and use HTTP methods to perform CRUD operations on resources.
 - CRUD: Create(POST), Read(GET), Update(PUT/PATCH), Delete(DELETE)
 
+## Day - 2 JavaScript Basics
+
+### Topics
+
+[ ] Alerts & Prompts  
+[x] Variables & Data Types -- Number, String, Boolean
+[x] Operators - Arithmetic & Logical & Relational & Assignment
+
 #### Variables and Data Types
 
 console.log("Hello World");
@@ -108,3 +116,45 @@ Variables:
 Operators:
 
 - Operators are symbols that perform operations on variables and values.
+
+## Day - 3 JavaScript Basics
+
+### Topics
+
+[x] Functions
+[x] if else ,
+[x] while do while ,
+[x] for loop
+
+##### Functions
+
+- A function is a block of code that performs a specific task and gets executed when it is called.
+
+Function Types:
+
+- Named Function: A function that has a name and can be called using that name.
+- Anonymous Function: A function that does not have a name and is usually used as a callback function.
+- Arrow Function: A shorthand syntax for writing anonymous functions using the arrow (=>) operator.
+- IIFE: Immediately Invoked Function Expression. A function that is executed immediately after it is defined.
+
+##### Looping Statements
+
+- To execute a block of code repeatedly until a certain condition is met.
+
+## Day - 4
+
+### Topics
+
+[x] Hoisting & scope
+[ ] Arrays & Array Methods
+[ ] Object and JSON iteration
+
+#### Scope
+
+- The scope of a variable is the part of the program where the variable is accessible.
+
+- There are different types of scopes in JavaScript:
+  - Global Scope: A variable that is declared outside of any function or block and is accessible from anywhere in the program.
+  - Local Scope: A variable that is declared inside a function or block and is only accessible from within that function or block.
+  - Block Scope: A variable that is declared inside a block (using let or const) and is only accessible from within that block.
+  - Function Scope: A variable that is declared inside a function and is only accessible from within that function.

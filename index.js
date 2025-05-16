@@ -301,10 +301,228 @@
 // })(6);
 
 // IIFE
-(function (number) {
-    if (number >= 0) {
-        console.log('Number is positive');
-    } else {
-        console.log('Number is negative');
-    }
-})(6);
+// (function (number) {
+//     if (number >= 0) {
+//         console.log('Number is positive');
+//     } else {
+//         console.log('Number is negative');
+//     }
+// })(6);
+
+// let z = 1;
+// do {
+//     console.log("success");
+//     z++;
+// } while (z < 3);
+
+// Scopes
+
+// let: introduced in ES6
+// var: oldest way to declare a variable
+
+// variable declaration and assignment
+
+// var x = 10;
+
+// x = 20;
+
+// console.log(x);
+
+// let x = 10;
+
+// x = 20;
+
+// console.log(x);
+
+// variable redeclaration
+// with let -> not possible
+// let x = 10;
+
+// let x = 'ten';
+
+// console.log(x);
+
+// with var -> possible
+// var x = 10;
+
+// var x = 'ten';
+
+// console.log(x);
+
+// var x = 10; // global scope
+
+// {
+//     x = 20;
+//     // this is a block
+//     console.log(x);
+// }
+
+// console.log(x);
+
+// {
+//     var x = 20; // global scope
+
+//     // this is a block
+//     console.log(x);
+// }
+
+// console.log(x);
+
+// for (let i = 1; i <= 10; i++);
+// console.log(i);
+
+// for (var i = 1; i <= 10; i++);
+// console.log(i);
+
+// let x = 10;
+
+// function fun() {
+//     console.log(x);
+// }
+
+// fun();
+// console.log(x);
+
+// function fun() {
+//     let x = 10;
+//     console.log(x);
+// }
+
+// fun();
+// console.log(x); // ReferenceError: x is not defined
+
+// function fun() {
+//     var x = 10;
+//     console.log(x);
+// }
+
+// fun();
+// console.log(x); 
+
+/*
+    local scope, global scope, block scope, function scope
+
+    let, const: block scope (ES6)
+    var: function scope
+
+    local scope: block scope, function scope
+
+    local scope: the variable is declared inside a block or function
+    global scope: the variable is declared outside a block or function
+
+*/
+
+// global scope
+// var x = 10;
+
+// {
+//     x = 20;
+//     console.log(x);
+// }
+
+// console.log(x);
+
+// let x = 10;
+
+// {
+//     x = 20;
+//     console.log(x);
+// }
+
+// console.log(x);
+
+// let x = 10;
+
+// if (true) {
+//     x = 20;
+//     console.log(x);
+// }
+
+// console.log(x);
+
+
+// let x = 10;
+
+
+// function fun() {
+//     x = 20;
+//     console.log(x);
+// }
+
+// fun(); // 20
+// console.log(x); // 20
+
+// let x = 10;
+
+// {
+//     let x = 20; // block scope
+
+//     console.log(x);
+// }
+
+// console.log(x);
+
+// for (var i = 1; i <= 5; i++)
+//     // 6 <= 5 False
+
+//     console.log(i);
+
+// function fun() {
+//     var x = 10;
+//     console.log(x);
+// }
+
+// fun();
+// console.log(x);
+
+// let person1 = ["abc", 25, "software developer", 200000, true, ["fishing", "cooking", "gardening"]];
+
+// console.log(typeof person1);
+
+// console.log(person1[0]);
+// console.log(person1[5][0]);
+
+// let person1 = {
+//     name: "abc",
+//     age: 25,
+//     profession: "software developer",
+//     salary: 200000,
+//     isEligible: true,
+//     hobbies: ["fishing", "cooking", "gardening"]
+// };
+
+// console.log(person1["name"]);
+// console.log(person1.name);
+// console.log(person1.hobbies[1])
+
+// console.log(typeof (person1));
+
+let numbers = [3, 4, 5, 6, 7];
+
+// numbers[0] = 30;
+
+// console.log(numbers[0]);
+
+// to insert a value into the array - at the end of the array
+numbers.push(8, 9, 10);
+
+// to delete an element from the end of the array
+numbers.pop();
+
+// to insert an element to the beginning of the array
+numbers.unshift(2);
+
+// to delete an element from the beginning of the array
+numbers.shift();
+
+// to insert an element at any place in the array
+// [ 3, 4, 5, 6, 7, 8, 9]
+//  [0][1][2][3][4][5][6][7]
+
+// at 3rd index, insert 10
+// numbers.splice(3, 2, 10, 11, 12);
+// numbers.splice(5, 2);
+
+numbers.splice(3, 3, 11, 12, 13);
+
+console.log(numbers);
