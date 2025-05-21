@@ -497,23 +497,23 @@
 
 // console.log(typeof (person1));
 
-let numbers = [3, 4, 5, 6, 7];
+// let numbers = [3, 4, 5, 6, 7];
 
 // numbers[0] = 30;
 
 // console.log(numbers[0]);
 
 // to insert a value into the array - at the end of the array
-numbers.push(8, 9, 10);
+// numbers.push(8, 9, 10);
 
 // to delete an element from the end of the array
-numbers.pop();
+// numbers.pop();
 
 // to insert an element to the beginning of the array
-numbers.unshift(2);
+// numbers.unshift(2);
 
 // to delete an element from the beginning of the array
-numbers.shift();
+// numbers.shift();
 
 // to insert an element at any place in the array
 // [ 3, 4, 5, 6, 7, 8, 9]
@@ -523,6 +523,19 @@ numbers.shift();
 // numbers.splice(3, 2, 10, 11, 12);
 // numbers.splice(5, 2);
 
-numbers.splice(3, 3, 11, 12, 13);
+// numbers.splice(3, 3, 11, 12, 13);
 
-console.log(numbers);
+// console.log(numbers);
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//            [0][1][2][3][4]
+
+// to insert 12 at 2
+// to delete 7 from index 5
+
+// numbers.splice(2, 0, 12);
+// numbers.splice(5, 1);
+
+// console.log(numbers);
+
+console.log(numbers.slice(5,));
