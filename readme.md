@@ -146,8 +146,8 @@ Function Types:
 ### Topics
 
 [x] Hoisting & scope
-[ ] Arrays & Array Methods
-[ ] Object and JSON iteration
+[x] Arrays & Array Methods
+[x] Object and JSON iteration
 
 #### Scope
 
@@ -158,3 +158,27 @@ Function Types:
   - Local Scope: A variable that is declared inside a function or block and is only accessible from within that function or block.
   - Block Scope: A variable that is declared inside a block (using let or const) and is only accessible from within that block.
   - Function Scope: A variable that is declared inside a function and is only accessible from within that function.
+
+# Module 2 HTML
+
+## Day - 5 HTML
+
+### Topics
+
+[x] What is HTML & Why to use?
+[x] Basic Tags - p, h1-h6, a, img, ul, ol, li, hr
+[x] div Vs span
+[x] Semantic Tags
+[x] Forms
+[x] Tables
+
+#### HTML
+
+- HTML: Hypertext Markup Language
+- HTML is a markup language used to create the structure and content of web pages.
+
+#### Semantic Tags
+
+- Semantic tags are HTML tags which is used for the special software to understand and read the content of the web page for the people with visual impairment issues.
+
+- Examples: <header>, <footer>, <nav>, <article>, <section>, <aside>, <figure>, <figcaption>, <main>, <mark>, <time>, <address>, <details>, <summary>
