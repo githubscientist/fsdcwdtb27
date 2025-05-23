@@ -192,9 +192,24 @@ Function Types:
 [ ] css selectors ( class vs id ) - other selectors: tag, descendant, child, sibling
 [ ] display property: inline, block -- (inline-block, flex, grid)
 [ ] Intro to pseudo-classes(link,visited,hover,active)
+[ ] Measurements
 
 #### What is CSS?
 
 - CSS: Cascading Style Sheets
 - CSS is a stylesheet language used to describe the presentation of a document written in HTML or XML.
 - CSS is used to control the layout, colors, fonts, and other visual aspects of a web page.
+
+#### Types of CSS
+
+- Inline CSS: CSS that is applied directly to an HTML element using the style attribute.
+- Internal CSS: CSS that is defined within the <style> tag in the head section of an HTML document.
+- External CSS: CSS that is defined in a separate file and linked to the HTML document using the <link> tag.
+
+
+
+#### CSS Selectors
+
+- CSS selectors are used to select the HTML elements that you want to style.
+- Types of CSS Selectors:
+  a. Tag Selector: Selects all elements of a specific tag. For example: p, h1, div, etc.
