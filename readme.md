@@ -206,10 +206,17 @@ Function Types:
 - Internal CSS: CSS that is defined within the <style> tag in the head section of an HTML document.
 - External CSS: CSS that is defined in a separate file and linked to the HTML document using the <link> tag.
 
-
-
 #### CSS Selectors
 
 - CSS selectors are used to select the HTML elements that you want to style.
 - Types of CSS Selectors:
   a. Tag Selector: Selects all elements of a specific tag. For example: p, h1, div, etc.
+  b. Class Selector: Selects all elements with a specific class. For example: .class-name
+  i. One element can have multiple classes.
+  ii. Multiple elements can have the same class.
+  c. ID Selector: Selects a single element with a specific ID. For example: #id-name
+  i. One element can have only one ID. ID should be unique for the whole document.
+  d. Multiple Selectors: You can combine multiple selectors to select specific elements. For example: p.class-name, div#id-name, etc.
+  e. Descendant Selector: Selects all elements that are descendants of a specific element. For example: div p selects all <p> elements inside a <div> element.
+  f. Child Selector: Selects all elements that are direct children of a specific element. For example: div > p selects all <p> elements that are direct children of a <div> element.
+  g. Sibling Selector: Selects all elements that are siblings of a specific element. For example: div + p selects the first <p> element that is a sibling of a <div> element.

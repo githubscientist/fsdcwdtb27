@@ -1,4 +1,49 @@
+/* universal selector */
+/* * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 table {
     background-color: #0000ff;
     color: white;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic { 
+    font-style: italic;
+}
+
+#para3 {
+    color: green;
+}
+
+#mnc {
+    color: blue;
+}
+
+.toc, .companiesList{
+    font-family: cursive;
+} */
+
+
+/* descendant selector */
+/* .companiesList li {
+    color: blue;
+} */
+
+/* .companiesList2 li {
+    color: purple;
+} */
+
+/* Child Selector */
+/* .companiesList > li {
+    color: red;
+} */
+
+/* Adjacent Sibling Selector */
+header + h2 {
+    color: red;
 }
