@@ -44,6 +44,15 @@ table {
 } */
 
 /* Adjacent Sibling Selector */
-header + h2 {
+/* header + h2 {
     color: red;
 }
+
+.companiesList #item1 {
+    color: purple;
+} */
+
+/* input[type="text"] {
+    background-color: grey;
+    color: white;
+}s */

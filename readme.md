@@ -220,3 +220,5 @@ Function Types:
   e. Descendant Selector: Selects all elements that are descendants of a specific element. For example: div p selects all <p> elements inside a <div> element.
   f. Child Selector: Selects all elements that are direct children of a specific element. For example: div > p selects all <p> elements that are direct children of a <div> element.
   g. Sibling Selector: Selects all elements that are siblings of a specific element. For example: div + p selects the first <p> element that is a sibling of a <div> element.
+  h. Attribute Selector: Selects all elements with a specific attribute. For example: [type="text"] selects all <input> elements with type="text".
+  i. Universal Selector: Selects all elements in the document. For example: \*
