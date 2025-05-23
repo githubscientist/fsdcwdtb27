@@ -182,3 +182,19 @@ Function Types:
 - Semantic tags are HTML tags which is used for the special software to understand and read the content of the web page for the people with visual impairment issues.
 
 - Examples: <header>, <footer>, <nav>, <article>, <section>, <aside>, <figure>, <figcaption>, <main>, <mark>, <time>, <address>, <details>, <summary>
+
+## Day - 6 CSS
+
+### Topics
+
+[x] What is CSS?
+[ ] Types of CSS: Inline, Internal, External
+[ ] css selectors ( class vs id ) - other selectors: tag, descendant, child, sibling
+[ ] display property: inline, block -- (inline-block, flex, grid)
+[ ] Intro to pseudo-classes(link,visited,hover,active)
+
+#### What is CSS?
+
+- CSS: Cascading Style Sheets
+- CSS is a stylesheet language used to describe the presentation of a document written in HTML or XML.
+- CSS is used to control the layout, colors, fonts, and other visual aspects of a web page.
