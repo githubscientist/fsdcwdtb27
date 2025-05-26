@@ -25,13 +25,6 @@
     /* default positioning */
     /* position: static; */
 
-    position: fixed;
-    /* right: 60px;
-    top: 50px; */
-
-    /* right: 10px;
-    bottom: 0; */
-
-    right: 34%;
-    top: 50%;
+    position: sticky;
+    top: 618px;
 }
