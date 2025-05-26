@@ -191,9 +191,9 @@ Function Types:
 [x] Types of CSS: Inline, Internal, External
 [x] css selectors ( class vs id ) - other selectors: tag, descendant, child, sibling
 [x] Precedence of CSS selectors
-[ ] display property: inline, block -- (inline-block, flex, grid)
-[ ] Intro to pseudo-classes(link,visited,hover,active)
-[ ] Measurements
+[x] display property: inline, block -- (inline-block, flex, grid)
+[x] Intro to pseudo-classes(link,visited,hover,active)
+[x] Measurements
 
 #### What is CSS?
 
@@ -243,3 +243,12 @@ Function Types:
 - Block Elements: Elements that start on a new line and take up the full width available. Examples: <div>, <p>, <h1>, <ul>, etc.
 
 - Using the display property, you can change the display type of an element from inline to block or vice versa.
+
+#### Pseudo-classes
+
+- Pseudo-classes are used to style elements based on their state or position in the document.
+
+1. :link - Styles links that have not been visited.
+2. :visited - Styles links that have been visited.
+3. :hover - Styles elements when the mouse is hovered over them.
+4. :active - Styles elements when they are being clicked or activated.
