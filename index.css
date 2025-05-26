@@ -1,22 +1,37 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-.div1 {
-    padding: 10px;
-    border: 10px solid green;
-    margin: 10px;
+.box {
+    width: 200px;
+    height: 200px;
+    font-size: 32px;
 }
 
-.div2 {
-    padding: 10px;
-    border: 10px solid red;
-    margin: 20px 10px;
+.green {
+    border: 3px solid green;
 }
 
-#hello, #world {
-    padding: 10px;
-    border: 10px solid blue;
-    margin: 10px;
+.blue {
+    border: 3px solid blue;
+}
+
+.red {
+    border: 3px solid red;
+}
+
+.header {
+    /* default positioning */
+    /* position: static; */
+
+    position: fixed;
+    /* right: 60px;
+    top: 50px; */
+
+    /* right: 10px;
+    bottom: 0; */
+
+    right: 34%;
+    top: 50%;
 }

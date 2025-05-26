@@ -257,10 +257,10 @@ Function Types:
 ### Topics
 
 [x] What is box model?
-[ ] Padding,margin
-[ ] Vizualize boxmodel in realtime using chrome tools.
+[x] Padding,margin
+[x] Vizualize boxmodel in realtime using chrome tools.
 [ ] Measurements
-[ ] CSS Position Properties.
+[x] CSS Position Properties.
 [ ] Colors - solid & linear gradients
 
 #### Box Model
@@ -271,3 +271,14 @@ Function Types:
   2. Padding: The space between the content and the border of the element.
   3. Border: The line that surrounds the padding and content of the element.
   4. Margin: The space outside the border of the element that separates it from other elements.
+
+#### CSS Position Properties
+
+- The position property is used to specify the position of an element in the document.
+- Types:
+
+1. static: The default position of an element. The element is positioned according to the normal flow of the document.
+2. fixed: The element is positioned relative to the viewport and does not move when the page is scrolled.
+3. sticky: The element is positioned based on the user's scroll position. It toggles between relative and fixed positioning depending on the scroll position.
+4. relative: The element is positioned relative to its normal position in the document flow.
+5. absolute: The element is positioned relative to its nearest positioned ancestor (an ancestor with a position other than static). If there is no such ancestor, it is positioned relative to the initial containing block (usually the viewport).
