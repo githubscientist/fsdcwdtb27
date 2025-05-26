@@ -188,8 +188,9 @@ Function Types:
 ### Topics
 
 [x] What is CSS?
-[ ] Types of CSS: Inline, Internal, External
-[ ] css selectors ( class vs id ) - other selectors: tag, descendant, child, sibling
+[x] Types of CSS: Inline, Internal, External
+[x] css selectors ( class vs id ) - other selectors: tag, descendant, child, sibling
+[x] Precedence of CSS selectors
 [ ] display property: inline, block -- (inline-block, flex, grid)
 [ ] Intro to pseudo-classes(link,visited,hover,active)
 [ ] Measurements
@@ -222,3 +223,16 @@ Function Types:
   g. Sibling Selector: Selects all elements that are siblings of a specific element. For example: div + p selects the first <p> element that is a sibling of a <div> element.
   h. Attribute Selector: Selects all elements with a specific attribute. For example: [type="text"] selects all <input> elements with type="text".
   i. Universal Selector: Selects all elements in the document. For example: \*
+
+#### Precedence of CSS Selectors
+
+- !important
+- Inline CSS
+- ID Selector
+- Class Selector
+- Tag Selector
+- Combinator Selectors(descendant, child, sibling)
+- Attribute Selector
+- Universal Selector
+- Internal CSS
+- External CSS

@@ -1,58 +1,35 @@
-/* universal selector */
-/* * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+/* h1 {
+    color: blue !important;
 }
 
-table {
-    background-color: #0000ff;
-    color: white;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.italic { 
-    font-style: italic;
-}
-
-#para3 {
-    color: green;
-}
-
-#mnc {
-    color: blue;
-}
-
-.toc, .companiesList{
-    font-family: cursive;
-} */
-
-
-/* descendant selector */
-/* .companiesList li {
-    color: blue;
-} */
-
-/* .companiesList2 li {
-    color: purple;
-} */
-
-/* Child Selector */
-/* .companiesList > li {
+h1 {
     color: red;
+} */
+
+
+/* #headingID {
+    color: red;
+} */
+
+/* .headingClass { 
+    color: green;
+} */
+/* 
+h1 {
+    color: blue;
 } */
 
 /* Adjacent Sibling Selector */
-/* header + h2 {
+/* .head1 + p {
+    color: blue;
+} */
+
+h2 + p {
     color: red;
 }
 
-.companiesList #item1 {
-    color: purple;
+/* General Sibling Selector */
+/*  Selects all p elements that are siblings of an element with the class head1 */
+/* .head1 ~ p {
+    color: red;
 } */
-
-/* input[type="text"] {
-    background-color: grey;
-    color: white;
-}s */
