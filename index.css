@@ -1,12 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 .box {
     width: 200px;
     height: 200px;
-    font-size: 32px;
 }
 
 .green {
@@ -21,10 +15,28 @@
     border: 3px solid red;
 }
 
-.header {
-    /* default positioning */
-    /* position: static; */
+.black {
+    border: 3px solid black;
+}
 
-    position: sticky;
-    top: 618px;
+.blue {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+.red {
+    position: relative;
+    left: 200px;
+}
+
+.sbox {
+    width: 100px;
+    height: 100px;
+}
+
+.black {
+    position: absolute;
+    top: 100px;
+    left: 100px;
 }
