@@ -193,7 +193,6 @@ Function Types:
 [x] Precedence of CSS selectors
 [x] display property: inline, block -- (inline-block, flex, grid)
 [x] Intro to pseudo-classes(link,visited,hover,active)
-[x] Measurements
 
 #### What is CSS?
 
@@ -252,3 +251,23 @@ Function Types:
 2. :visited - Styles links that have been visited.
 3. :hover - Styles elements when the mouse is hovered over them.
 4. :active - Styles elements when they are being clicked or activated.
+
+## Day - 7 CSS
+
+### Topics
+
+[x] What is box model?
+[ ] Padding,margin
+[ ] Vizualize boxmodel in realtime using chrome tools.
+[ ] Measurements
+[ ] CSS Position Properties.
+[ ] Colors - solid & linear gradients
+
+#### Box Model
+
+- The box model is a way of representing the layout of an HTML element in terms of its content, padding, border, and margin.
+- The box model consists of the following components:
+  1. Content: The actual content of the element, such as text or images.
+  2. Padding: The space between the content and the border of the element.
+  3. Border: The line that surrounds the padding and content of the element.
+  4. Margin: The space outside the border of the element that separates it from other elements.
