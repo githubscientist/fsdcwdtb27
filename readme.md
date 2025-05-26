@@ -236,3 +236,10 @@ Function Types:
 - Universal Selector
 - Internal CSS
 - External CSS
+
+#### Display Property
+
+- Inline Elements: Elements that do not start on a new line and only take up as much width as necessary. Examples: <span>, <a>, <img>, etc.
+- Block Elements: Elements that start on a new line and take up the full width available. Examples: <div>, <p>, <h1>, <ul>, etc.
+
+- Using the display property, you can change the display type of an element from inline to block or vice versa.

@@ -1,35 +1,7 @@
-/* h1 {
-    color: blue !important;
+img {
+    display: block;
 }
 
-h1 {
-    color: red;
-} */
-
-
-/* #headingID {
-    color: red;
-} */
-
-/* .headingClass { 
-    color: green;
-} */
-/* 
-h1 {
-    color: blue;
-} */
-
-/* Adjacent Sibling Selector */
-/* .head1 + p {
-    color: blue;
-} */
-
-h2 + p {
-    color: red;
+p {
+    display: inline;
 }
-
-/* General Sibling Selector */
-/*  Selects all p elements that are siblings of an element with the class head1 */
-/* .head1 ~ p {
-    color: red;
-} */
