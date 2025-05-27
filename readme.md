@@ -282,3 +282,9 @@ Function Types:
 3. sticky: The element is positioned based on the user's scroll position. It toggles between relative and fixed positioning depending on the scroll position.
 4. relative: The element is positioned relative to its normal position in the document flow.
 5. absolute: The element is positioned relative to its nearest positioned ancestor (an ancestor with a position other than static). If there is no such ancestor, it is positioned relative to the initial containing block (usually the viewport).
+
+Relative and Absolute Positioning:
+
+- once set, we can position the element using the top, right, bottom, and left properties.
+- For relative positioning, the element is positioned using the top, right, bottom, and left properties relative to its normal position. i.e., w.r.t the normal flow of the document.
+- For absolute positioning, the element will be taken out of the normal flow of the document and positioned relative to its nearest positioned ancestor. i.e., w.r.t the nearest ancestor which has a position other than static and if there is no such ancestor, it is positioned relative to the initial containing block (usually the viewport).
