@@ -1,61 +1,24 @@
-/*
-    Measurements
-
-    px - Pixels, basic unit of measurement in web design. It will be a size of 1/96th of an inch or in cm, 1/37.7952755906th of a cm.
-
-    other units: 
-
-    cm - centimeter, 1/100th of a meter or in pixels, 37.7952755906 pixels.
-    m - meter, 100 centimeters or in pixels, 3779.52755906 pixels.
-    in - inch, 1/96th of an inch or in pixels, 96 pixels.
-    pt - point, 1/72nd of an inch or in pixels, 1.33333333333 pixels.
-
-    px to cm:
-    1px = 0.0264583333 cm
-    100px = 2.64583333 cm
-
-    em - relative to the font-size of the element, 1em = 16px by default in most browsers.
-    rem - relative to the font-size of the root element, 1rem = 16px by default in most browsers.
-    % - percentage, relative to the parent element's size.
-
-*/
-
 * {
-    margin: 0;
     padding: 0;
-    font-size: 16px;
+    margin: 0;
 }
 
-.btn1 {
-    /* width: 100px;
-     */
-    /* width: 100%; */
+.menu > li > a {
+    text-decoration: none;
+    color: green;
 }
 
-/* .btn2 {
-    width: 2.65cm;
+.menu > li {
+    list-style: none;
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 5px;
 }
 
-.btn3 {
-    width: 13.99%;
+.header {
+    margin: 10px;
 }
 
-.btn4 {
-    width: 115.84px;
-} */
-
-.btn1 {
-    width: 96px;
-}
-
-.btn2 {
-    /* 
-        1em = 16px by default.
-        100px = 6.25em
-
-        16px = 1em
-        100px = 1/16 * 100px
-    */
-    /* font-size: 32px; */
-    width: 6em;
+.menu > li:hover {
+    background-color: lightgrey;
 }
