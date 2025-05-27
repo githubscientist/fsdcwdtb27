@@ -32,19 +32,42 @@
 
 .menu {
     display: flex;
-    /* flex-direction: row; */
-    /* flex-direction: row-reverse; */
-    /* flex-direction: column; */
-    /* flex-direction: column-reverse; */
     flex-direction: row;
-    /* justify-content: start; */
-    /* justify-content: end; */
-    /* justify-content: center; */
-    justify-content: center; /* horizontal alignment */
-    align-items: center; /* vertical alignment */
+    justify-content: end;
 }
 
-.menu {
-    border: 2px solid red;
-    height: 200px;
+.home {
+    /*
+        home
+        products
+        courses
+        contact
+        about
+    */
+    order: 1;
+    flex-grow: 1;
+}
+
+.products {
+    order: 2;
+    flex-grow: 1;
+}
+
+.courses {
+    order: 3;
+    flex-grow: 1;
+}
+
+.contact {
+    order: 4;
+    flex-grow: 1;
+}
+
+.about {
+    order: 5;
+    flex-grow: 1;
+}
+
+.menu > li:hover {
+    flex-grow: 2;
 }
