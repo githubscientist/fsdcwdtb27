@@ -288,3 +288,7 @@ Relative and Absolute Positioning:
 - once set, we can position the element using the top, right, bottom, and left properties.
 - For relative positioning, the element is positioned using the top, right, bottom, and left properties relative to its normal position. i.e., w.r.t the normal flow of the document.
 - For absolute positioning, the element will be taken out of the normal flow of the document and positioned relative to its nearest positioned ancestor. i.e., w.r.t the nearest ancestor which has a position other than static and if there is no such ancestor, it is positioned relative to the initial containing block (usually the viewport).
+
+#### Flexbox
+
+- Flexbox is a layout model that allows you to create flexible and responsive layouts using CSS.

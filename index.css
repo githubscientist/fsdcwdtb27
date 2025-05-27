@@ -13,6 +13,9 @@
     border: 1px solid grey;
     padding: 10px;
     margin: 5px;
+    width: 100px;
+    height: 25px;
+    text-align: center;
 }
 
 .header {
@@ -21,4 +24,27 @@
 
 .menu > li:hover {
     background-color: lightgrey;
+}
+
+.menu > li > a:hover {
+    color: black;
+}
+
+.menu {
+    display: flex;
+    /* flex-direction: row; */
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+    flex-direction: row;
+    /* justify-content: start; */
+    /* justify-content: end; */
+    /* justify-content: center; */
+    justify-content: center; /* horizontal alignment */
+    align-items: center; /* vertical alignment */
+}
+
+.menu {
+    border: 2px solid red;
+    height: 200px;
 }
