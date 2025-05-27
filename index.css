@@ -1,62 +1,61 @@
-.box {
-    width: 200px;
-    height: 200px;
+/*
+    Measurements
+
+    px - Pixels, basic unit of measurement in web design. It will be a size of 1/96th of an inch or in cm, 1/37.7952755906th of a cm.
+
+    other units: 
+
+    cm - centimeter, 1/100th of a meter or in pixels, 37.7952755906 pixels.
+    m - meter, 100 centimeters or in pixels, 3779.52755906 pixels.
+    in - inch, 1/96th of an inch or in pixels, 96 pixels.
+    pt - point, 1/72nd of an inch or in pixels, 1.33333333333 pixels.
+
+    px to cm:
+    1px = 0.0264583333 cm
+    100px = 2.64583333 cm
+
+    em - relative to the font-size of the element, 1em = 16px by default in most browsers.
+    rem - relative to the font-size of the root element, 1rem = 16px by default in most browsers.
+    % - percentage, relative to the parent element's size.
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
 }
 
-.green {
-    border: 3px solid green;
+.btn1 {
+    /* width: 100px;
+     */
+    /* width: 100%; */
 }
 
-.blue {
-    border: 3px solid blue;
+/* .btn2 {
+    width: 2.65cm;
 }
 
-.red {
-    border: 3px solid red;
+.btn3 {
+    width: 13.99%;
 }
 
-.black {
-    border: 3px solid black;
+.btn4 {
+    width: 115.84px;
+} */
+
+.btn1 {
+    width: 96px;
 }
 
-.green {
-    position: relative;
-    left: 100px;
-    top: 100px;
-}
+.btn2 {
+    /* 
+        1em = 16px by default.
+        100px = 6.25em
 
-.blue {
-    position: absolute;
-    left: 200px;
-    top: 0;
-}
-
-.orange {
-    border: 3px solid orange;
-}
-
-.sbox {
-    width: 50px;
-    height: 50px;
-}
-
-.brown {
-    border: 3px solid brown;
-}
-
-.orange {
-    position: absolute;
-    left: 250px;
-    bottom: 250px
-}
-
-.brown {
-    position: relative;
-    left: 150px;
-}
-
-.black {
-    position: relative;
-    top: 50px;
-    left: 50px;
+        16px = 1em
+        100px = 1/16 * 100px
+    */
+    /* font-size: 32px; */
+    width: 6em;
 }

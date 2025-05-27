@@ -259,7 +259,7 @@ Function Types:
 [x] What is box model?
 [x] Padding,margin
 [x] Vizualize boxmodel in realtime using chrome tools.
-[ ] Measurements
+[x] Measurements
 [x] CSS Position Properties.
 [ ] Colors - solid & linear gradients
 
