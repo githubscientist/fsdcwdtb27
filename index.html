@@ -6,20 +6,34 @@
         <title>Media Queries</title>
         <link rel="stylesheet" href="./index.css">
         <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <style>
+            :root {
+                --primary-color: #FDBE35;
+            }
+
+            .icon-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'opsz' 24;
+            }
+
+            .icon-filled {
+                font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+            }
+        </style>
     </head>
     <body>
-        <div class="container">
-            <nav class="menu">
-                <span class="material-symbols-outlined" id="menuIcon">menu</span>
-                <ul class="menuList">
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">Live Classes</a></li>
-                    <li><a href="#">Practice</a></li>
-                    <li><a href="#">Resources</a></li>
-                    <li><a href="#">Products</a></li>
-                </ul>
-            </nav>
+        <h1 style="color: var(--primary-color);">Hello World!</h1>
+        <div>
+            <span class="material-symbols-outlined icon-outlined">home</span>
+            <span class="material-symbols-outlined">settings</span>
+            <span class="material-symbols-outlined">favorite</span>
         </div>
+
+        <div>
+            <span class="material-symbols-outlined icon-filled">home</span>
+            <span class="material-symbols-outlined">settings</span>
+            <span class="material-symbols-outlined">favorite</span>
+        </div>
+
     </body>
 </html>
