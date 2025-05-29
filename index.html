@@ -22,18 +22,24 @@
         </style>
     </head>
     <body>
-        <h1 style="color: var(--primary-color);">Hello World!</h1>
-        <div>
-            <span class="material-symbols-outlined icon-outlined">home</span>
-            <span class="material-symbols-outlined">settings</span>
-            <span class="material-symbols-outlined">favorite</span>
-        </div>
+        <header class="topbar">
+            <div class="logo">
+                <img src="./assets/Hot Meals.png" alt="logo">
+            </div>
 
-        <div>
-            <span class="material-symbols-outlined icon-filled">home</span>
-            <span class="material-symbols-outlined">settings</span>
-            <span class="material-symbols-outlined">favorite</span>
-        </div>
+            <div class="delivery-location">
+                <span>Deliver to:</span><span class="material-symbols-outlined icon-filled" id="locationIcon">location_on</span> <span>Current Location</span> <span>Ashok Nagar, Chennai - 600013</span>
+            </div>
 
+            <div class="search-login">
+                <span class="material-symbols-outlined icon-filled">search</span>
+                <input type="text" placeholder="Search Food" class="search-input">
+                <button class="login-btn"><span class="material-symbols-outlined icon-filled">person</span>Login</button>
+            </div>
+        </header>
+
+        <section class="hero">
+            
+        </section>
     </body>
 </html>
