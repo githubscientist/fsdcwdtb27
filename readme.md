@@ -292,3 +292,10 @@ Relative and Absolute Positioning:
 #### Flexbox
 
 - Flexbox is a layout model that allows you to create flexible and responsive layouts using CSS.
+
+#### Day - 8
+
+##### Topics
+
+[ ] text shadow , rgba() func,repeating bg pateern,indentation of list items
+[ ] z-index
