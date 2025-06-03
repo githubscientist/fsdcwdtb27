@@ -297,5 +297,39 @@ Relative and Absolute Positioning:
 
 ##### Topics
 
-[ ] text shadow , rgba() func,repeating bg pateern,indentation of list items
-[ ] z-index
+[ ] text shadow , rgba() func,repeating bg pateern, indentation of list items
+[x] z-index
+[x] transform, transition
+[ ] element hiding, shadow effect, rounded border, fixed width container
+
+#### Day - 11 Tailwind CSS
+
+##### Topics
+
+[x] Setup
+[ ] Colors
+[ ] Typography
+[ ] Spaces & Sizes
+[ ] Borders
+[ ] Images
+[ ] Customization
+
+#### Library Vs Framework
+
+Library:
+
+- Collection of pre-written code
+- Collection of classes, functions, and methods that can be used to perform specific tasks.
+
+Framework:
+
+- A framework is a collection of libraries and tools with a specific structure and set of rules.
+
+#### Tailwind CSS
+
+- Tailwind CSS is a utility-first CSS framework that provides a set of pre-defined classes to style HTML elements.
+
+#### utility-first css
+
+- utility-first means that you can use pre-defined classes to style HTML elements without writing custom CSS.
+- utility means that one class does one thing and one thing only.

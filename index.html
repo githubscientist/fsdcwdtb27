@@ -3,16 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Transform, Transition</title>
-        <link rel="stylesheet" href="./index.css">
+        <title>Tailwind CSS</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exile&display=swap" rel="stylesheet">
+
+        <!-- Tailwind CSS Customization -->
+         <style>
+            @layer base {
+                .font-exile {
+                    font-family: 'exile', sans-serif;
+                }
+            }
+        </style>
     </head>
     <body>
-        <div class="box green">
-
-        </div>
-
-        <div class="box red">
-
+        <div class="text-orange-600 text-4xl bg-yellow-200 border font-exile font-semibold text-center p-8 m-8">
+            <h1>Hello World</h1>
         </div>
     </body>
 </html>
