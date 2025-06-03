@@ -307,10 +307,10 @@ Relative and Absolute Positioning:
 ##### Topics
 
 [x] Setup
-[ ] Colors
-[ ] Typography
-[ ] Spaces & Sizes
-[ ] Borders
+[x] Colors
+[x] Typography
+[x] Spaces & Sizes
+[x] Borders
 [ ] Images
 [ ] Customization
 
