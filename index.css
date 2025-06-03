@@ -1,0 +1,7 @@
+.box {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    /* box-shadow: h-offset v-offset blur spread color; */
+    box-shadow: 5px 5px 10px 4px rgba(0, 0, 255, 0.5);
+}
