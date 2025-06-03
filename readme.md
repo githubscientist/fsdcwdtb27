@@ -333,3 +333,11 @@ Framework:
 
 - utility-first means that you can use pre-defined classes to style HTML elements without writing custom CSS.
 - utility means that one class does one thing and one thing only.
+
+media queries
+
+<480px max-width: 480px
+
+481px to 768px min-width: 481px and max-width: 768px
+
+769px to 1024px min-width: 769px and max-width: 1024px
