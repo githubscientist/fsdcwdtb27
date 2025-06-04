@@ -3,30 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tailwind CSS</title>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
-
-        <!-- <style>
-            .vada {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-        </style> -->
-
-        <link rel="stylesheet" href="./index.css">
+        <title>Grid and Flex - TailwindCSS Responsive</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
     <body>
-       <!-- <img src="./assets/vada.png" alt="vada"
-        class="w-25 h-25 rounded-full"
-       > -->
-
-       <!-- <img src="./assets/vada.png" alt="vada"
-        class="vada"
-       > -->
-
-       <!-- <div class="box">
-
-       </div> -->
+        <div class="container grid md:grid-cols-2 grid-cols-1">
+            <div class="flex md:flex-row gap-2 justify-around flex-col items-center">
+                <div class="box1 border border-2 w-25 h-25 bg-green-600 col-start-1 col-end-1"></div>
+                <div class="box1 border border-2 w-25 h-25 bg-green-600 col-start-2 col-end-2"></div>
+                <div class="box1 border border-2 w-25 h-25 bg-green-600 col-start-3 col-end-3"></div>
+            </div>
+            <div class="flex md:flex-row justify-around gap-2 flex-col items-center">
+                <div class="box1 border border-2 bg-green-600 w-25 h-25"></div>
+                <div class="box1 border border-2 bg-green-600 w-25 h-25"></div>
+            </div>
+        </div>
     </body>
 </html>
