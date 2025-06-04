@@ -5,3 +5,11 @@
     /* box-shadow: h-offset v-offset blur spread color; */
     box-shadow: 5px 5px 10px 4px rgba(0, 0, 255, 0.5);
 }
+
+body {
+    background-image: url('./assets/vada.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
