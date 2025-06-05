@@ -3,42 +3,116 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Grid and Flex - TailwindCSS Responsive</title>
+        <title>Agency Landing Page - Figma</title>
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+        <!-- Google Fonts - Inter Family CDN -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet">
 
         <!-- Tailwind CSS - Custom Styles -->
          <style type="text/tailwindcss">
             @theme {
-                --color-primary-600: #4CAF4F;
-                --color-primary-500: #5CB85C;
-                --color-primary-400: #66BB6A;
-                --color-primary-300: #81C784;
-                --color-primary-200: #A5D6A7;
-                --color-primary-100: #C8E6C9;
-                --color-primary-50: #E8F5E9;
+                --color-primary: #4CAF4F;
+                --color-secondary: #263238;
+                --color-info: #2194F3;
 
-                --font-primary: 'Qwigley', cursive;
+                --color-shade-100: #43A046;
+                --color-shade-200: #388E3B;
+                --color-shade-300: #2E7D31;
+                --color-shade-400: #1B5E1F;
+                --color-shade-500: #103E13;
+
+                --color-tint-100: #EBF5E9;
+                --color-tint-200: #C8E6C9;
+                --color-tint-300: #A5D6A7;
+                --color-tint-400: #81C784;
+                --color-tint-500: #66BB69;
+
+                --color-warning: #FBC02D;
+                --color-error: #E53835;
+                --color-success: #2E7D31;
+
+                --color-neutral-black: #263238;
+                --color-neutral-dark-grey: #4D4D4D;
+                --color-neutral-grey: #717171;
+                --color-neutral-light-grey: #89939E;
+                --color-neutral-grey-blue: #ABBED1;
+                --color-neutral-silver: #F5F7FA;
+                --color-neutral-white: #FFFFFF;
+                
+
+                --font-primary: 'Inter', sans-serif;
             }
 
             @layer base {
                 .btn-primary {
-                    @apply bg-primary-500 text-white py-4 px-8 rounded;
+                    @apply bg-primary text-white rounded font-primary py-2 px-6;
+                }
+
+                /* typography */
+                .text-h1 {
+                    @apply text-[64px] leading-[76px] font-semibold;
+                }
+
+                .text-h2 {
+                    @apply text-[36px] leading-[44px] font-semibold;
+                }
+
+                .text-h3 {
+                    @apply text-[28px] leading-[36px] font-semibold;
+                }
+
+                .text-h4 {
+                    @apply text-[20px] leading-[28px] font-semibold;
+                }
+
+                .text-body1 { 
+                    @apply text-[18px] leading-[28px] font-normal;
+                }
+
+                .text-body2 {
+                    @apply text-[16px] leading-[24px] font-normal;
+                }
+
+                .text-body3 {
+                    @apply text-[14px] leading-[20px] font-normal;
+                }
+
+                .text-body4 {
+                    @apply text-[12px] leading-[16px] font-normal;
                 }
             }
 
             @layer components {
                 .btn-primary {
-                    @apply md:w-1/2;
-                    @apply lg:w-full;
+                    @apply sm:py-2 sm:px-6;
+                    @apply md:py-[14px] md:px-8;
+                    @apply lg:py-4 lg:px-8;
                 }
             }
          </style>
     </head>
-    <body>
-        <button class="btn-primary">Label</button>
+    <body class="font-primary text-secondary">
+        <header class="flex justify-between items-center p-6 max-w-screen-xl mx-auto">
+            <div>
+                <img src="./assets/logo.png" alt="logo" class="w-auto h-8">
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <nav class="space-x-4">
+                    <a href="#">Home</a>
+                    <a href="#">Features</a>
+                    <a href="#">Community</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Pricing</a>
+                </nav>
+
+                <a href="#" class="btn-primary">Register Now -></a>
+            </div>
+        </header>
     </body>
 </html>

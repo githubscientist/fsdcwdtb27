@@ -311,8 +311,8 @@ Relative and Absolute Positioning:
 [x] Typography
 [x] Spaces & Sizes
 [x] Borders
-[ ] Images
-[ ] Customization
+[x] Images
+[x] Customization
 
 #### Library Vs Framework
 
