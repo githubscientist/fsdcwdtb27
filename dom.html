@@ -4,15 +4,39 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DOM API</title>
+        <style>
+            .green {
+                color: green;
+            }
+        </style>
     </head>
     <body>
-        <p>Hello World!</p>
+        <h1 class="green" id="heading">Hello World!</h1>
+        <p class="red first">FIRST - Welcome to the DOM API DEMO</p>
+        <p class="second">SECOND - Welcome to the DOM API DEMO</p>
 
         <script>
-            let paragraph = document.getElementsByTagName('p')[0];
+            // console.log(document.getElementsByTagName('h1')[0]);
 
-            // console.log(paragraph.textContent);
-            paragraph.textContent = 'Hello JavaScript!';
+            // let greenTexts = document.getElementsByClassName('green');
+
+            // console.log(greenTexts[0]);
+            // console.log(greenTexts[1]);
+
+            // let heading = document.getElementById('heading');
+
+            // console.log(heading);
+            // console.log(heading.textContent);
+
+            // heading.textContent = Number(heading.textContent) + 10;
+
+            // console.log(document.querySelector('p'));
+            // console.log(document.querySelector('.green.bold'));
+            // console.log(document.querySelector('#heading'));
+            // console.log(document.querySelectorAll('p')[1]);
+            // console.log(document.querySelectorAll('#heading'));
+
+            console.log(document.querySelectorAll('.green,.second,.red.first'));
         </script>
     </body>
 </html>
