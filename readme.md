@@ -341,3 +341,16 @@ media queries
 481px to 768px min-width: 481px and max-width: 768px
 
 769px to 1024px min-width: 769px and max-width: 1024px
+
+## Day - 15
+
+### Topics
+
+[ ] What is DOM?
+
+DOM:
+
+- Document Object Model
+- DOM is a structure that represents the HTML document as a tree of objects.
+- Each element in the HTML document is represented as an object in the DOM.
+- It provides an interface and API (set of methods and properties) to manipulate the HTML document using JavaScript.
