@@ -5,9 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DOM API</title>
         <link rel="stylesheet" href="./dom.css">
+        <style>
+            form input {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+        </style>
     </head>
     <body>
-        <button id="btnSubmit" value="submit">Change Background</button>
+        <form style="border: 1px solid black; padding: 20px; width: 50%; margin: 20px auto; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <h1>Register</h1>
+            <input type="text" name="register" id="registerID" placeholder="Enter your name...">
+            <input type="email" name="email" id="emailID" placeholder="Enter your email...">
+            <input type="password" name="password" id="passwordID" placeholder="Enter your password...">
+            <input type="submit" value="Register" id="registerButton">
+        </form>
         <script src="./dom.js"></script>
     </body>
 </html>
