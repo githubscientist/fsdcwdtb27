@@ -4,33 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DOM API</title>
-        <style>
-            .green {
-                color: green;
-            }
-        </style>
+        <link rel="stylesheet" href="./dom.css">
     </head>
     <body>
         <div id="container">
             
         </div>
 
-        <script>
-            // select the container div from html
-            let container = document.getElementById('container');
-
-            // create a new h1 tag element
-            let h1 = document.createElement('h1');
-
-            // set the h1 element content to "Hello World"
-            h1.textContent = 'Hello World!';
-
-            h1.setAttribute('class', 'green');
-
-            // append the h1 element inside the container
-            container.appendChild(h1);
-
-            console.log(container);
-        </script>
+        <script src="./dom.js"></script>
     </body>
 </html>
