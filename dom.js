@@ -60,3 +60,21 @@ for (let i = 0; i < products.length; i++) {
 
 // append the list to the container
 container.append(list);
+
+/*
+    <header>
+        <nav>
+            
+        </nav>
+    </header>
+
+    Create a header block with nav items from the following array:
+
+    const navItems = [
+        { name: 'Home', link: '/home'},
+        { name: 'Products', link: '/products'},
+        { name: 'About Us', link: '/about'},
+        { name: 'Contact', link: '/contact'},
+        { name: 'Blog', link: '/blog'}
+    ]
+*/
