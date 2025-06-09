@@ -37,7 +37,8 @@ let products = [
 ]
 
 // get the reference of the container div block
-const container = document.getElementById('container');
+// const container = document.getElementById('container');
+const container = document.createElement('div');
 
 // create a h2 element
 const heading = document.createElement('h2');
@@ -64,7 +65,7 @@ container.append(list);
 /*
     <header>
         <nav>
-            
+
         </nav>
     </header>
 
@@ -78,3 +79,80 @@ container.append(list);
         { name: 'Blog', link: '/blog'}
     ]
 */
+
+const navItems = [
+    { name: 'Home', link: '/home' },
+    { name: 'Products', link: '/products' },
+    { name: 'About Us', link: '/about' },
+    { name: 'Contact', link: '/contact' },
+    { name: 'Blog', link: '/blog' }
+]
+
+// create a header div block
+const header = document.createElement('header');
+
+// create a nav block
+const nav = document.createElement('nav');
+
+// nav.setAttribute('class', 'navBlock');
+nav.classList.add('navBlock');
+
+// create an unordered list
+const navList = document.createElement('ul');
+navList.style.display = "flex";
+navList.style.gap = "20px";
+
+navItems.forEach(navItem => {
+    const li = document.createElement('li');
+
+    // create an anchor tag
+    const a = document.createElement('a');
+    a.textContent = navItem.name;
+
+    // set the attribute of anchor tags to navItem.link
+    a.setAttribute('href', navItem.link);
+
+    a.style.textDecoration = "none";
+    a.style.color = "black";
+
+    li.style.listStyleType = "none";
+
+    // append the a tag to the li item
+    li.append(a);
+
+    navList.append(li);
+})
+
+
+// append the navList to the nav block
+nav.append(navList);
+
+// append nav block to the header
+header.append(nav);
+
+// prepend the header to the container
+container.prepend(header);
+
+document.body.prepend(container);
+
+// const styles = `.navBlock li{
+//     list-style-type: none;
+//     margin: 0;
+//     padding: 0;
+// }
+
+// .navBlock li a {
+//     text-decoration: none;
+//     color: #000;
+// }
+
+// .navBlock ul{
+//     display: flex;
+//     flex-direction: row;
+//     gap: 20px;
+// }`;
+
+// const styleBlock = document.createElement('style');
+// styleBlock.textContent = styles;
+
+// document.head.append(styleBlock);
