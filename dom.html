@@ -5,40 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DOM API</title>
         <link rel="stylesheet" href="./dom.css">
-        <style>
-            form input {
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                font-size: 16px;
-            }
-
-            form {
-                border: 1px solid  black;
-                padding: 20px;
-                width: 50%;
-                margin: 20px auto;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-        </style>
     </head>
     <body>
-        <form id="registerForm">
-            <h1>Register</h1>
-            <input type="text" name="name" id="nameID" placeholder="Enter your name..."
-            >
-            <input type="email" name="email" id="emailID" placeholder="Enter your email...">
-            <input type="password" name="password" id="passwordID" placeholder="Enter your password..."
-            minlength="8"
-            oninput="validatePassword(event)"
-            required
-            >
-            <p id="error"></p>
-            <input type="submit" value="Register" id="registerButton" disabled>
-        </form>
+        <nav class="navBlock">
+
+        </nav>
         <script src="./dom.js"></script>
     </body>
 </html>
