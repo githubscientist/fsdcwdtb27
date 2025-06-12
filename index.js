@@ -1,39 +1,52 @@
-// const add = (a, b) => a + b;
-// const sub = (a, b) => a - b;
-// const mul = (a, b) => a * b;
-// const div = (a, b) => a / b;
+/*
+    Promise: A promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+*/
 
-// /*
-//     a & b are numbers (any)
-//     callback -> functions [add, sub, mul, div]
-// */
-// function calc(a, b, operation) {
-//     return operation(a, b);
-// }
+// Create a new promise object using Promise constructor
+// constructor -> a special method -> automatically gets called whenever we create an object.
+let promise = new Promise(
+    // Executor -> Callback -> Function that is passed as an arg to another function.
+    (resolve, reject) => {
+        // Executor -> Callback -> Waits for 3 seconds
+        setTimeout(() => {
+            // After 3s, Generate a random number
+            const randomNumber = Math.floor(Math.random() * 11);
 
-// console.log(calc(5, 6, mul));
+            // Success condition: randomNumber being <= 5
+            // Failure condition: randomNumber being > 5 
+            if (randomNumber <= 5) {
+                // call the success callback
+                resolve(randomNumber);
+            } else {
+                // call the failure callback
+                reject(randomNumber);
+            }
+        }, 5000);
+    }
+)
 
-// Callback hell example
-// callback hell is a situation where multiple nested callbacks make the code difficult to read and maintain.
-// setTimeout(() => {
-//     console.log('1');
-//     setTimeout(() => {
-//         console.log('2');
-//         setTimeout(() => {
-//             console.log('3');
-//             setTimeout(() => {
-//                 console.log('4');
-//                 setTimeout(() => {
-//                     console.log('5');
-//                     setTimeout(() => {
-//                         console.log('Happy New Year!');
-//                     }, 1000);
-//                 }, 1000);
-//             }, 1000);
-//         }, 1000);
-//     }, 1000);
-// }, 1000);
+console.log(promise);
+
+promise
+    .then(
+        // a success callback is passed
+        (randomNumber) => {
+            console.log('promise resolved');
+            // data?
+            console.log(randomNumber);
+        },
+    )
+    .catch(
+        // a failure callback is passed
+        (randomNumber) => {
+            console.log('promise rejected');
+            console.log(randomNumber);
+        }
+    )
 
 /*
-    
+    Promise can be in one of the following states:
+    1. Pending: Initial state, neither fulfilled nor rejected.
+    2. Fulfilled: The operation completed successfully.
+    3. Rejected: The operation failed.
 */
