@@ -1,52 +1,37 @@
 /*
-    Promise: A promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+    Fetch
+        - It is a built-in JavaScript function that allows you to make http requests to servers.
+        - It is used to make API calls to retrieve or send data.
+        - Fetch internally uses Promises.
+        - Fetch is an asynchronous function, meaning it does not block the execution of code while waiting for a response.
+        - Fetch is more modern and flexible compared to the older XMLHttpRequest (XHR) method.
+
+    XHR
+        - It is an older way to make HTTP requests in JavaScript.
+
 */
 
-// Create a new promise object using Promise constructor
-// constructor -> a special method -> automatically gets called whenever we create an object.
-let promise = new Promise(
-    // Executor -> Callback -> Function that is passed as an arg to another function.
-    (resolve, reject) => {
-        // Executor -> Callback -> Waits for 3 seconds
-        setTimeout(() => {
-            // After 3s, Generate a random number
-            const randomNumber = Math.floor(Math.random() * 11);
+// fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/read`)
+//     .then((response) => {
+//         return response.json();
+//     })
+//     .then((data) => {
+//         console.log(data);
+//     })
 
-            // Success condition: randomNumber being <= 5
-            // Failure condition: randomNumber being > 5 
-            if (randomNumber <= 5) {
-                // call the success callback
-                resolve(randomNumber);
-            } else {
-                // call the failure callback
-                reject(randomNumber);
-            }
-        }, 5000);
-    }
-)
+// HTTP request using XHR
 
-console.log(promise);
+// create a new XMLHttpRequest object
+const xhr = new XMLHttpRequest();
 
-promise
-    .then(
-        // a success callback is passed
-        (randomNumber) => {
-            console.log('promise resolved');
-            // data?
-            console.log(randomNumber);
-        },
-    )
-    .catch(
-        // a failure callback is passed
-        (randomNumber) => {
-            console.log('promise rejected');
-            console.log(randomNumber);
-        }
-    )
+// prepare the request
+xhr.open('GET', `https://api.dictionaryapi.dev/api/v2/entries/en/read`);
 
-/*
-    Promise can be in one of the following states:
-    1. Pending: Initial state, neither fulfilled nor rejected.
-    2. Fulfilled: The operation completed successfully.
-    3. Rejected: The operation failed.
-*/
+// function to handle the response
+xhr.onload = function () {
+    // get the response
+    console.log(JSON.parse(xhr.responseText));
+}
+
+// send the request
+xhr.send();
