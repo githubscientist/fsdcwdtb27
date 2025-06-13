@@ -11,27 +11,17 @@
 
 */
 
-// fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/read`)
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((data) => {
-//         console.log(data);
-//     })
-
-// HTTP request using XHR
-
-// create a new XMLHttpRequest object
-const xhr = new XMLHttpRequest();
-
-// prepare the request
-xhr.open('GET', `https://api.dictionaryapi.dev/api/v2/entries/en/read`);
-
-// function to handle the response
-xhr.onload = function () {
-    // get the response
-    console.log(JSON.parse(xhr.responseText));
+async function fetchData() {
+    try {
+        // this is a try block to write code that might throw an error.
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/read`);
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        // this is a catch block to handle errors that occur in the try block.
+        console.log('An error occurred:', error);
+    }
+    console.log('This will work');
 }
 
-// send the request
-xhr.send();
+fetchData();
