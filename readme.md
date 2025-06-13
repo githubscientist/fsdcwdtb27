@@ -354,3 +354,29 @@ DOM:
 - DOM is a structure that represents the HTML document as a tree of objects.
 - Each element in the HTML document is represented as an object in the DOM.
 - It provides an interface and API (set of methods and properties) to manipulate the HTML document using JavaScript.
+
+API: Application Programming Interface.
+
+Web Application:
+
+- It follows the client-server architecture.
+- The client is the web browser that sends requests to the server.
+- The server is the web server that processes the requests and sends back the response.
+- Request is a HTTP request.
+- Request is made to the server using HTTP methods like GET, POST, PUT, DELETE, etc.
+
+REST API:
+
+- REST API is an architectural style for designing networked applications.
+- REST API is based on the principles of REST and uses HTTP methods to perform CRUD operations on resources.
+
+RESTful API:
+
+- If the communication between the client and server is done using HTTP and HTTP methods, then it is called RESTful API.
+
+HTTP Methods:
+
+- GET: Used to retrieve data from the server.
+- POST: Used to send data to the server.
+- PUT: Used to update data on the server.
+- DELETE: Used to delete data from the server.
