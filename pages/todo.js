@@ -41,12 +41,19 @@ async function Main() {
 Main();
 
 function deleteTodo() {
-    fetch(`https://684c3f27ed2578be881e37e6.mockapi.io/todos/${id}`, {
-        method: 'DELETE'
-    })
-        .then(response => {
-            alert('Todo Deleted');
-
-            window.location.href = '/index.html';
+    let confirmResult = confirm('Are you sure to delete?');
+    if (confirmResult) {
+        fetch(`https://684c3f27ed2578be881e37e6.mockapi.io/todos/${id}`, {
+            method: 'DELETE'
         })
+            .then(response => {
+                alert('Todo Deleted');
+
+                window.location.href = '/index.html';
+            })
+    }
+}
+
+function gotoEditPage() {
+    window.location.href = '/pages/edit.html?' + 'id=' + id;
 }
