@@ -51,3 +51,9 @@ async function Main() {
 }
 
 Main();
+
+const createTodoButton = document.querySelector('.createTodoButton');
+
+createTodoButton.addEventListener('click', () => {
+    window.location.href = '/pages/create.html';
+})

@@ -1,6 +1,7 @@
 // Global variables or constants
 let todo = null;
 let API_URL = `https://684c3f27ed2578be881e37e6.mockapi.io/todos`;
+let id;
 
 async function fetchTodo(id) {
     try {
@@ -30,7 +31,7 @@ function renderTodo(todo) {
 async function Main() {
     // Get the ID from the URL Params
     const params = new URLSearchParams(window.location.search);
-    let id = params.get('id');
+    id = params.get('id');
 
     todo = await fetchTodo(id);
 
@@ -38,3 +39,14 @@ async function Main() {
 }
 
 Main();
+
+function deleteTodo() {
+    fetch(`https://684c3f27ed2578be881e37e6.mockapi.io/todos/${id}`, {
+        method: 'DELETE'
+    })
+        .then(response => {
+            alert('Todo Deleted');
+
+            window.location.href = '/index.html';
+        })
+}

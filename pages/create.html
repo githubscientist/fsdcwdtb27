@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Todo</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Create New TODO</h1>
+            <form class="createTodoForm">
+                <div>
+                    <label for="content">
+                        Content:
+                        <input type="text" name="content" id="content" required>
+                        </label>
+                </div>  
+                <br>
+                <div>
+                    <label for="completedRadio">
+                        <input type="radio" name="status" id="completedRadio">
+                        Completed
+                    </label>
+
+                    <label for="notCompletedRadio">
+                        <input type="radio" name="status" id="notCompletedRadio" checked>
+                        Not Completed
+                    </label>
+                </div>
+
+                <br>
+                <div>
+                    <button class="submitButton" type="submit">Submit</button>
+                    <button class="cancelButton">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <script src="./create.js"></script>
+    </body>
+</html>
