@@ -24,8 +24,17 @@ function renderTodoList(todos) {
         // for each todo object, create a list item
         const todoItem = document.createElement('li');
 
+        // create an anchor item
+        const a = document.createElement('a');
+
         // set the todoItem content
-        todoItem.textContent = todo.content;
+        a.textContent = todo.content;
+
+        // set the href value of each a tag
+        a.setAttribute('href', `/pages/todo.html?id=${todo.id}`);
+
+        // append each anchor item to the list item
+        todoItem.appendChild(a);
 
         // append each of the created list item the unordered list
         todoList.appendChild(todoItem);
