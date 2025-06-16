@@ -46,6 +46,9 @@ async function Main() {
     // function to fetch all the todo list items
     todos = await fetchTodos();
 
+    // store the todos in localStorage
+    localStorage.setItem('todos', JSON.stringify(todos));
+
     // populate the page with the data
     renderTodoList(todos);
 }

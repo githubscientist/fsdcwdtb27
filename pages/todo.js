@@ -28,12 +28,18 @@ function renderTodo(todo) {
     status.innerHTML = `<strong>Completed?: </strong>${todo.isCompleted ? 'YES' : 'NO'}`
 }
 
+function getFromStorage(id) {
+    const todos = JSON.parse(localStorage.getItem('todos'));
+    const todo = todos.find(item => item.id === id);
+    return todo;
+}
+
 async function Main() {
     // Get the ID from the URL Params
     const params = new URLSearchParams(window.location.search);
     id = params.get('id');
 
-    todo = await fetchTodo(id);
+    todo = getFromStorage(id) || await fetchTodo(id);
 
     renderTodo(todo);
 }
