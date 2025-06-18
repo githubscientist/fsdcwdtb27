@@ -232,9 +232,14 @@
 
 // console.log(rest);
 
-let arr1 = { age: 30, city: 'New York', name: 'John' };
+// let arr1 = { age: 30, city: 'New York', name: 'John' };
 
-let { name, ...rest } = arr1;
+// let { name, ...rest } = arr1;
 
-console.log(name);
-console.log(rest);
+// console.log(name);
+// console.log(rest);
+
+// x = 10;
+// console.log(x);
+
+// let x;
