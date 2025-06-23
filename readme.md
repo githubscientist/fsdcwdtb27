@@ -380,3 +380,22 @@ HTTP Methods:
 - POST: Used to send data to the server.
 - PUT: Used to update data on the server.
 - DELETE: Used to delete data from the server.
+
+Class:
+
+- a blueprint or
+- a template for creating objects.
+- a collection of objects.
+
+Object:
+
+- an instance of a class.
+
+this:
+
+- this is a keyword that refers to the current object in the context of a class.
+
+constructor:
+
+- a special method that is called when an object is created from a class.
+- it is used to initialize the properties of the object.
