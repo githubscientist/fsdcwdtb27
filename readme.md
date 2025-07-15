@@ -146,3 +146,11 @@ To select specific columns from a table:
 ```sql
 SELECT id, name, price FROM Products;
 ```
+
+### SQL: Structured Query Language
+
+- DDL: Data Definition Language (e.g., CREATE, ALTER, DROP)
+- DML: Data Manipulation Language (e.g., INSERT, UPDATE, DELETE)
+- DQL: Data Query Language (e.g., SELECT)
+- DCL: Data Control Language (e.g., GRANT, REVOKE)
+- DTL: Data Transaction Language (e.g., COMMIT, ROLLBACK)
