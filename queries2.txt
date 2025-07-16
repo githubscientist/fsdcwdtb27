@@ -1,0 +1,481 @@
+mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.41 Homebrew
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| fsdcwdtb19         |
+| fsdcwdtb27         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+
+mysql> use fsdcwdtb27;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select database();
++------------+
+| database() |
++------------+
+| fsdcwdtb27 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_fsdcwdtb27 |
++----------------------+
+| Products             |
++----------------------+
+1 row in set (0.01 sec)
+
+mysql> desc Products;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int         | YES  |     | NULL    |       |
+| name     | varchar(20) | YES  |     | NULL    |       |
+| price    | float       | YES  |     | NULL    |       |
+| quantity | int         | YES  |     | NULL    |       |
+| branch   | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+
+| id   | name      | price | quantity | branch     |
++------+-----------+-------+----------+------------+
+|    1 | Apple     |   0.5 |      100 | Coimbatore |
+|    2 | Banana    |   0.3 |      150 | Chennai    |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |
+|    4 | Orange    |   0.6 |      120 | Madurai    |
+|    5 | Mango     |   0.8 |      180 | Chennai    |
+|    6 | Grapes    |   0.9 |      160 | Coimbatore |
+|    7 | Pineapple |     1 |       90 | Madurai    |
++------+-----------+-------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> alter table Products rename column branch to location;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Products;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int         | YES  |     | NULL    |       |
+| name     | varchar(20) | YES  |     | NULL    |       |
+| price    | float       | YES  |     | NULL    |       |
+| quantity | int         | YES  |     | NULL    |       |
+| location | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table Products add column discount decimal(10, 2);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Products;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| id       | int           | YES  |     | NULL    |       |
+| name     | varchar(20)   | YES  |     | NULL    |       |
+| price    | float         | YES  |     | NULL    |       |
+| quantity | int           | YES  |     | NULL    |       |
+| location | varchar(20)   | YES  |     | NULL    |       |
+| discount | decimal(10,2) | YES  |     | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+----------+
+| id   | name      | price | quantity | location   | discount |
++------+-----------+-------+----------+------------+----------+
+|    1 | Apple     |   0.5 |      100 | Coimbatore |     NULL |
+|    2 | Banana    |   0.3 |      150 | Chennai    |     NULL |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |     NULL |
+|    4 | Orange    |   0.6 |      120 | Madurai    |     NULL |
+|    5 | Mango     |   0.8 |      180 | Chennai    |     NULL |
+|    6 | Grapes    |   0.9 |      160 | Coimbatore |     NULL |
+|    7 | Pineapple |     1 |       90 | Madurai    |     NULL |
++------+-----------+-------+----------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update Products set discount = quantity * price * 0.10;
+Query OK, 7 rows affected, 4 warnings (0.01 sec)
+Rows matched: 7  Changed: 7  Warnings: 4
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+----------+
+| id   | name      | price | quantity | location   | discount |
++------+-----------+-------+----------+------------+----------+
+|    1 | Apple     |   0.5 |      100 | Coimbatore |     5.00 |
+|    2 | Banana    |   0.3 |      150 | Chennai    |     4.50 |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |    15.00 |
+|    4 | Orange    |   0.6 |      120 | Madurai    |     7.20 |
+|    5 | Mango     |   0.8 |      180 | Chennai    |    14.40 |
+|    6 | Grapes    |   0.9 |      160 | Coimbatore |    14.40 |
+|    7 | Pineapple |     1 |       90 | Madurai    |     9.00 |
++------+-----------+-------+----------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> alter table Products add column totalPrice decimal(10, 2);
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Products;
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| id         | int           | YES  |     | NULL    |       |
+| name       | varchar(20)   | YES  |     | NULL    |       |
+| price      | float         | YES  |     | NULL    |       |
+| quantity   | int           | YES  |     | NULL    |       |
+| location   | varchar(20)   | YES  |     | NULL    |       |
+| discount   | decimal(10,2) | YES  |     | NULL    |       |
+| totalPrice | decimal(10,2) | YES  |     | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+----------+------------+
+| id   | name      | price | quantity | location   | discount | totalPrice |
++------+-----------+-------+----------+------------+----------+------------+
+|    1 | Apple     |   0.5 |      100 | Coimbatore |     5.00 |       NULL |
+|    2 | Banana    |   0.3 |      150 | Chennai    |     4.50 |       NULL |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |    15.00 |       NULL |
+|    4 | Orange    |   0.6 |      120 | Madurai    |     7.20 |       NULL |
+|    5 | Mango     |   0.8 |      180 | Chennai    |    14.40 |       NULL |
+|    6 | Grapes    |   0.9 |      160 | Coimbatore |    14.40 |       NULL |
+|    7 | Pineapple |     1 |       90 | Madurai    |     9.00 |       NULL |
++------+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update Products set totalPrice = price * quantity;
+Query OK, 7 rows affected, 4 warnings (0.00 sec)
+Rows matched: 7  Changed: 7  Warnings: 4
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+----------+------------+
+| id   | name      | price | quantity | location   | discount | totalPrice |
++------+-----------+-------+----------+------------+----------+------------+
+|    1 | Apple     |   0.5 |      100 | Coimbatore |     5.00 |      50.00 |
+|    2 | Banana    |   0.3 |      150 | Chennai    |     4.50 |      45.00 |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |    15.00 |     150.00 |
+|    4 | Orange    |   0.6 |      120 | Madurai    |     7.20 |      72.00 |
+|    5 | Mango     |   0.8 |      180 | Chennai    |    14.40 |     144.00 |
+|    6 | Grapes    |   0.9 |      160 | Coimbatore |    14.40 |     144.00 |
+|    7 | Pineapple |     1 |       90 | Madurai    |     9.00 |      90.00 |
++------+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> alter table Products modify column price decimal(10, 2);
+Query OK, 7 rows affected, 4 warnings (0.02 sec)
+Records: 7  Duplicates: 0  Warnings: 4
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+----------+------------+
+| id   | name      | price | quantity | location   | discount | totalPrice |
++------+-----------+-------+----------+------------+----------+------------+
+|    1 | Apple     |  0.50 |      100 | Coimbatore |     5.00 |      50.00 |
+|    2 | Banana    |  0.30 |      150 | Chennai    |     4.50 |      45.00 |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |    15.00 |     150.00 |
+|    4 | Orange    |  0.60 |      120 | Madurai    |     7.20 |      72.00 |
+|    5 | Mango     |  0.80 |      180 | Chennai    |    14.40 |     144.00 |
+|    6 | Grapes    |  0.90 |      160 | Coimbatore |    14.40 |     144.00 |
+|    7 | Pineapple |  1.00 |       90 | Madurai    |     9.00 |      90.00 |
++------+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> alter table Products drop column discount;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Products;
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| id         | int           | YES  |     | NULL    |       |
+| name       | varchar(20)   | YES  |     | NULL    |       |
+| price      | decimal(10,2) | YES  |     | NULL    |       |
+| quantity   | int           | YES  |     | NULL    |       |
+| location   | varchar(20)   | YES  |     | NULL    |       |
+| totalPrice | decimal(10,2) | YES  |     | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+------------+
+| id   | name      | price | quantity | location   | totalPrice |
++------+-----------+-------+----------+------------+------------+
+|    1 | Apple     |  0.50 |      100 | Coimbatore |      50.00 |
+|    2 | Banana    |  0.30 |      150 | Chennai    |      45.00 |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |     150.00 |
+|    4 | Orange    |  0.60 |      120 | Madurai    |      72.00 |
+|    5 | Mango     |  0.80 |      180 | Chennai    |     144.00 |
+|    6 | Grapes    |  0.90 |      160 | Coimbatore |     144.00 |
+|    7 | Pineapple |  1.00 |       90 | Madurai    |      90.00 |
++------+-----------+-------+----------+------------+------------+
+7 rows in set (0.01 sec)
+
+mysql> alter table Products add column discount decimal(10, 2);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+------------+----------+
+| id   | name      | price | quantity | location   | totalPrice | discount |
++------+-----------+-------+----------+------------+------------+----------+
+|    1 | Apple     |  0.50 |      100 | Coimbatore |      50.00 |     NULL |
+|    2 | Banana    |  0.30 |      150 | Chennai    |      45.00 |     NULL |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |     150.00 |     NULL |
+|    4 | Orange    |  0.60 |      120 | Madurai    |      72.00 |     NULL |
+|    5 | Mango     |  0.80 |      180 | Chennai    |     144.00 |     NULL |
+|    6 | Grapes    |  0.90 |      160 | Coimbatore |     144.00 |     NULL |
+|    7 | Pineapple |  1.00 |       90 | Madurai    |      90.00 |     NULL |
++------+-----------+-------+----------+------------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update Products set discount = totalPrice * 0.10;
+Query OK, 7 rows affected (0.00 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+------------+----------+
+| id   | name      | price | quantity | location   | totalPrice | discount |
++------+-----------+-------+----------+------------+------------+----------+
+|    1 | Apple     |  0.50 |      100 | Coimbatore |      50.00 |     5.00 |
+|    2 | Banana    |  0.30 |      150 | Chennai    |      45.00 |     4.50 |
+|    3 | Cherry    |  0.75 |      200 | Coimbatore |     150.00 |    15.00 |
+|    4 | Orange    |  0.60 |      120 | Madurai    |      72.00 |     7.20 |
+|    5 | Mango     |  0.80 |      180 | Chennai    |     144.00 |    14.40 |
+|    6 | Grapes    |  0.90 |      160 | Coimbatore |     144.00 |    14.40 |
+|    7 | Pineapple |  1.00 |       90 | Madurai    |      90.00 |     9.00 |
++------+-----------+-------+----------+------------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> alter table Products modify column location varchar(20) after discount;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+----------+------------+
+| id   | name      | price | quantity | totalPrice | discount | location   |
++------+-----------+-------+----------+------------+----------+------------+
+|    1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|    2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|    3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|    4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|    5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|    6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|    7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++------+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> alter table Products add column xyz int after price;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Products;
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| id         | int           | YES  |     | NULL    |       |
+| name       | varchar(20)   | YES  |     | NULL    |       |
+| price      | decimal(10,2) | YES  |     | NULL    |       |
+| xyz        | int           | YES  |     | NULL    |       |
+| quantity   | int           | YES  |     | NULL    |       |
+| totalPrice | decimal(10,2) | YES  |     | NULL    |       |
+| discount   | decimal(10,2) | YES  |     | NULL    |       |
+| location   | varchar(20)   | YES  |     | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table Products drop column xyz;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Products;
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| id         | int           | YES  |     | NULL    |       |
+| name       | varchar(20)   | YES  |     | NULL    |       |
+| price      | decimal(10,2) | YES  |     | NULL    |       |
+| quantity   | int           | YES  |     | NULL    |       |
+| totalPrice | decimal(10,2) | YES  |     | NULL    |       |
+| discount   | decimal(10,2) | YES  |     | NULL    |       |
+| location   | varchar(20)   | YES  |     | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products;
++------+-----------+-------+----------+------------+----------+------------+
+| id   | name      | price | quantity | totalPrice | discount | location   |
++------+-----------+-------+----------+------------+----------+------------+
+|    1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|    2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|    3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|    4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|    5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|    6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|    7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++------+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products where price < 0.5;
++------+--------+-------+----------+------------+----------+----------+
+| id   | name   | price | quantity | totalPrice | discount | location |
++------+--------+-------+----------+------------+----------+----------+
+|    2 | Banana |  0.30 |      150 |      45.00 |     4.50 | Chennai  |
++------+--------+-------+----------+------------+----------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from Products where price <= 0.5;
++------+--------+-------+----------+------------+----------+------------+
+| id   | name   | price | quantity | totalPrice | discount | location   |
++------+--------+-------+----------+------------+----------+------------+
+|    1 | Apple  |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|    2 | Banana |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
++------+--------+-------+----------+------------+----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select name from Products where price <= 0.5;
++--------+
+| name   |
++--------+
+| Apple  |
+| Banana |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select name, price from Products where price <= 0.5;
++--------+-------+
+| name   | price |
++--------+-------+
+| Apple  |  0.50 |
+| Banana |  0.30 |
++--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Products where price = 0.5;
++------+-------+-------+----------+------------+----------+------------+
+| id   | name  | price | quantity | totalPrice | discount | location   |
++------+-------+-------+----------+------------+----------+------------+
+|    1 | Apple |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
++------+-------+-------+----------+------------+----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Products where price != 0.5;
++------+-----------+-------+----------+------------+----------+------------+
+| id   | name      | price | quantity | totalPrice | discount | location   |
++------+-----------+-------+----------+------------+----------+------------+
+|    2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|    3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|    4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|    5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|    6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|    7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++------+-----------+-------+----------+------------+----------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from Products where price <> 0.5;
++------+-----------+-------+----------+------------+----------+------------+
+| id   | name      | price | quantity | totalPrice | discount | location   |
++------+-----------+-------+----------+------------+----------+------------+
+|    2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|    3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|    4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|    5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|    6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|    7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++------+-----------+-------+----------+------------+----------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from Products where price <> 0.5 and location="Coimbatore";
++------+--------+-------+----------+------------+----------+------------+
+| id   | name   | price | quantity | totalPrice | discount | location   |
++------+--------+-------+----------+------------+----------+------------+
+|    3 | Cherry |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|    6 | Grapes |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
++------+--------+-------+----------+------------+----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Products where location = "Coimbatore" or location = "Madurai";
++------+-----------+-------+----------+------------+----------+------------+
+| id   | name      | price | quantity | totalPrice | discount | location   |
++------+-----------+-------+----------+------------+----------+------------+
+|    1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|    3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|    4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|    6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|    7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++------+-----------+-------+----------+------------+----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Products where location = "Coimbatore";
++------+--------+-------+----------+------------+----------+------------+
+| id   | name   | price | quantity | totalPrice | discount | location   |
++------+--------+-------+----------+------------+----------+------------+
+|    1 | Apple  |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|    3 | Cherry |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|    6 | Grapes |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
++------+--------+-------+----------+------------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Products where not location = "Coimbatore";
++------+-----------+-------+----------+------------+----------+----------+
+| id   | name      | price | quantity | totalPrice | discount | location |
++------+-----------+-------+----------+------------+----------+----------+
+|    2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai  |
+|    4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai  |
+|    5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai  |
+|    7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai  |
++------+-----------+-------+----------+------------+----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from Products where location in ("Chennai", "Coimbatore");
++------+--------+-------+----------+------------+----------+------------+
+| id   | name   | price | quantity | totalPrice | discount | location   |
++------+--------+-------+----------+------------+----------+------------+
+|    1 | Apple  |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|    2 | Banana |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|    3 | Cherry |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|    5 | Mango  |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|    6 | Grapes |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
++------+--------+-------+----------+------------+----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Products where location not in ("Chennai", "Coimbatore");
++------+-----------+-------+----------+------------+----------+----------+
+| id   | name      | price | quantity | totalPrice | discount | location |
++------+-----------+-------+----------+------------+----------+----------+
+|    4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai  |
+|    7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai  |
++------+-----------+-------+----------+------------+----------+----------+
+2 rows in set (0.00 sec)
