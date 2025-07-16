@@ -184,3 +184,21 @@ To Drop a column:
 ```sql
 ALTER TABLE Products DROP COLUMN description;
 ```
+
+Operators:
+
+Relational operators:
+
+< less than
+
+> greater than
+> <= less than or equal to
+> = greater than or equal to
+> = equal to
+> != or <> not equal to>
+
+logical operators:
+
+AND: both conditions must be true
+OR: at least one condition must be true
+NOT: negates a condition
