@@ -154,3 +154,33 @@ SELECT id, name, price FROM Products;
 - DQL: Data Query Language (e.g., SELECT)
 - DCL: Data Control Language (e.g., GRANT, REVOKE)
 - DTL: Data Transaction Language (e.g., COMMIT, ROLLBACK)
+
+To Rename a column:
+
+```sql
+ALTER TABLE Products RENAME COLUMN branch TO location;
+```
+
+To add a new column:
+
+```sql
+ALTER TABLE Products ADD COLUMN description VARCHAR(100);
+```
+
+To Update an entire column:
+
+```sql
+UPDATE Products SET price = price * 1.1; -- Increase all prices by 10
+```
+
+To modify a column data type:
+
+```sql
+ALTER TABLE Products MODIFY COLUMN price DECIMAL(5,2);
+```
+
+To Drop a column:
+
+```sql
+ALTER TABLE Products DROP COLUMN description;
+```
