@@ -202,3 +202,110 @@ logical operators:
 AND: both conditions must be true
 OR: at least one condition must be true
 NOT: negates a condition
+
+IN: checks if a value is in a list of values
+NOT IN: checks if a value is not in a list of values
+BETWEEN: checks if a value is within a range
+
+Constraints:
+
+Constraints are rules applied to columns in a table to enforce data integrity.
+
+Types of constraints:
+
+- NOT NULL: Ensures a column cannot have a NULL value.
+- UNIQUE: Ensures all values in a column are unique.
+- PRIMARY KEY: Uniquely identifies each row in a table; cannot be NULL.
+- FOREIGN KEY: Establishes a relationship between two tables; ensures referential integrity.
+
+Let's say we have another table called Sales:
+
+| id  | product_id | quantity | sale_date  |
+| --- | ---------- | -------- | ---------- |
+| 1   | 1          | 10       | 2023-10-01 |
+| 2   | 2          | 5        | 2023-10-02 |
+| 3   | 1          | 8        | 2023-10-03 |
+
+To create the Sales table with a foreign key constraint:
+
+```sql
+CREATE TABLE Sales (
+    id INT,
+    product_id INT,
+    quantity INT,
+    sale_date DATE,
+    FOREIGN KEY (product_id) REFERENCES Products(id)
+);
+```
+
+To insert data into the Sales table:
+
+```sql
+INSERT INTO Sales (id, product_id, quantity, sale_date) VALUES
+(1, 1, 10, '2023-10-01'),
+(2, 2, 5, '2023-10-02'),
+(3, 1, 8, '2023-10-03');
+```
+
+Normalization:
+
+Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves dividing a database into smaller tables and defining relationships between them.
+
+Question: Find the product name that has been sold on 2023-10-02.
+
+Joins:
+
+- Joins are used to combine rows from two or more tables based on a related column between them.
+
+Types:
+
+- INNER JOIN: Returns rows when there is a match in both tables.
+
+- OUTER JOIN:
+  - LEFT JOIN: Returns all rows from the left table and matched rows from the right table.
+  - RIGHT JOIN: Returns all rows from the right table and matched rows from the left table.
+  - FULL OUTER JOIN: Returns all rows when there is a match in one of the tables.
+
+Example for Multiple Joins:
+
+```sql
+SELECT Products.name, Sales.quantity, Sales.sale_date
+FROM Products
+INNER JOIN Sales ON Products.id = Sales.product_id
+INNER JOIN Branches ON Products.branch = Branches.name
+WHERE Sales.sale_date = '2023-10-02';
+```
+
+Inner Join Example:
+
+```sql
+select P.name, P.price, P.quantity, S.quantity as sold_quantity, S.sale_date from Products as P INNER JOIN Sales as S ON P.id = S.product_id;
+```
+
+LEFT JOIN Example:
+
+```sql
+SELECT P.name, P.price, S.quantity as sold_quantity, S.sale_date
+FROM Products AS P
+LEFT JOIN Sales AS S ON P.id = S.product_id;
+```
+
+RIGHT JOIN Example:
+
+```sql
+SELECT P.name, P.price, S.quantity as sold_quantity, S.sale_date
+FROM Products AS P
+RIGHT JOIN Sales AS S ON P.id = S.product_id;
+```
+
+FULL OUTER JOIN Example:
+
+```sql
+SELECT P.name, P.price, S.quantity as sold_quantity, S.sale_date
+FROM Products AS P
+LEFT JOIN Sales AS S ON P.id = S.product_id
+UNION
+SELECT P.name, P.price, S.quantity as sold_quantity, S.sale_date
+FROM Products AS P
+RIGHT JOIN Sales AS S ON P.id = S.product_id;
+```
