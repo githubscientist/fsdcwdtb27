@@ -309,3 +309,7 @@ SELECT P.name, P.price, S.quantity as sold_quantity, S.sale_date
 FROM Products AS P
 RIGHT JOIN Sales AS S ON P.id = S.product_id;
 ```
+
+Question: From Products table, find the total quanity of products available in each branch.
+
+[ ] add syntax / example for remaining queries.

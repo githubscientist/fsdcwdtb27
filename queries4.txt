@@ -1,0 +1,513 @@
+mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.41 Homebrew
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| fsdcwdtb19         |
+| fsdcwdtb27         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.04 sec)
+
+mysql> use fsdcwdtb27;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------------+
+| Tables_in_fsdcwdtb27 |
++----------------------+
+| Products             |
+| Sales                |
++----------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Products;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select location from Products;
++------------+
+| location   |
++------------+
+| Coimbatore |
+| Chennai    |
+| Coimbatore |
+| Madurai    |
+| Chennai    |
+| Coimbatore |
+| Madurai    |
++------------+
+7 rows in set (0.00 sec)
+
+mysql> select distinct(location) from Products;
++------------+
+| location   |
++------------+
+| Coimbatore |
+| Chennai    |
+| Madurai    |
++------------+
+3 rows in set (0.00 sec)
+
+mysql> select name, distinct(location) from Products;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'distinct(location) from Products' at line 1
+mysql> select name, location from Products;
++-----------+------------+
+| name      | location   |
++-----------+------------+
+| Apple     | Coimbatore |
+| Banana    | Chennai    |
+| Cherry    | Coimbatore |
+| Orange    | Madurai    |
+| Mango     | Chennai    |
+| Grapes    | Coimbatore |
+| Pineapple | Madurai    |
++-----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select min(quantity) from Products;
++---------------+
+| min(quantity) |
++---------------+
+|            90 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select name, min(quantity) from Products;
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'fsdcwdtb27.Products.name'; this is incompatible with sql_mode=only_full_group_by
+mysql> select max(quantity) from Products;
++---------------+
+| max(quantity) |
++---------------+
+|           200 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(quantity) from Products;
++---------------+
+| sum(quantity) |
++---------------+
+|          1000 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select count(quantity) from Products;
++-----------------+
+| count(quantity) |
++-----------------+
+|               7 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Products where location = "Coimbatore"
+    -> ;
++----+--------+-------+----------+------------+----------+------------+
+| id | name   | price | quantity | totalPrice | discount | location   |
++----+--------+-------+----------+------------+----------+------------+
+|  1 | Apple  |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  3 | Cherry |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  6 | Grapes |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
++----+--------+-------+----------+------------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select quantity from Products where location = "Coimbatore";
++----------+
+| quantity |
++----------+
+|      100 |
+|      200 |
+|      160 |
++----------+
+3 rows in set (0.00 sec)
+
+mysql> select sum(quantity) from Products where location = "Coimbatore
+    "> ";
++---------------+
+| sum(quantity) |
++---------------+
+|          NULL |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(quantity) from Products where location = "Coimbatore";     
++---------------+
+| sum(quantity) |
++---------------+
+|           460 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Products;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity)
+    -> from Products 
+    -> group by location;
++------------+---------------+
+| location   | sum(quantity) |
++------------+---------------+
+| Coimbatore |           460 |
+| Chennai    |           330 |
+| Madurai    |           210 |
++------------+---------------+
+3 rows in set (0.01 sec)
+
+mysql> select location, sum(quantity), count() from Products  group by location;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') from Products  group by location' at line 1
+mysql> select location, sum(quantity), count(id) from Products  group by location;
++------------+---------------+-----------+
+| location   | sum(quantity) | count(id) |
++------------+---------------+-----------+
+| Coimbatore |           460 |         3 |
+| Chennai    |           330 |         2 |
+| Madurai    |           210 |         2 |
++------------+---------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select location, name, sum(quantity) from Products group by location, name;
++------------+-----------+---------------+
+| location   | name      | sum(quantity) |
++------------+-----------+---------------+
+| Coimbatore | Apple     |           100 |
+| Chennai    | Banana    |           150 |
+| Coimbatore | Cherry    |           200 |
+| Madurai    | Orange    |           120 |
+| Chennai    | Mango     |           180 |
+| Coimbatore | Grapes    |           160 |
+| Madurai    | Pineapple |            90 |
++------------+-----------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> select location, name, sum(quantity) as totalQuantity from Products group by location, name;
++------------+-----------+---------------+
+| location   | name      | totalQuantity |
++------------+-----------+---------------+
+| Coimbatore | Apple     |           100 |
+| Chennai    | Banana    |           150 |
+| Coimbatore | Cherry    |           200 |
+| Madurai    | Orange    |           120 |
+| Chennai    | Mango     |           180 |
+| Coimbatore | Grapes    |           160 |
+| Madurai    | Pineapple |            90 |
++------------+-----------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity), count(id) from Products  group by location;
++------------+---------------+-----------+
+| location   | sum(quantity) | count(id) |
++------------+---------------+-----------+
+| Coimbatore |           460 |         3 |
+| Chennai    |           330 |         2 |
+| Madurai    |           210 |         2 |
++------------+---------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity), count(id) from Products  group by location where location = "Coimbatore";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where location = "Coimbatore"' at line 1
+mysql> select location, sum(quantity), count(id) from Products  group by location having location = "Coimbatore";
++------------+---------------+-----------+
+| location   | sum(quantity) | count(id) |
++------------+---------------+-----------+
+| Coimbatore |           460 |         3 |
++------------+---------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select location, sum(quantity), count(id) from Products  group by location;
++------------+---------------+-----------+
+| location   | sum(quantity) | count(id) |
++------------+---------------+-----------+
+| Coimbatore |           460 |         3 |
+| Chennai    |           330 |         2 |
+| Madurai    |           210 |         2 |
++------------+---------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity from Products  group by location;
++------------+---------------+
+| location   | totalQuantity |
++------------+---------------+
+| Coimbatore |           460 |
+| Chennai    |           330 |
+| Madurai    |           210 |
++------------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Coimbatore |           460 |          3 |
+| Chennai    |           330 |          2 |
+| Madurai    |           210 |          2 |
++------------+---------------+------------+
+3 rows in set (0.01 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location order by totalQuantity;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Madurai    |           210 |          2 |
+| Chennai    |           330 |          2 |
+| Coimbatore |           460 |          3 |
++------------+---------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location order by totalQuantity asc;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Madurai    |           210 |          2 |
+| Chennai    |           330 |          2 |
+| Coimbatore |           460 |          3 |
++------------+---------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location order by totalQuantity desc;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Coimbatore |           460 |          3 |
+| Chennai    |           330 |          2 |
+| Madurai    |           210 |          2 |
++------------+---------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location order by totalQuantity desc limit 1;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Coimbatore |           460 |          3 |
++------------+---------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location order by totalQuantity desc limit 2;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Coimbatore |           460 |          3 |
+| Chennai    |           330 |          2 |
++------------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location order by totalQuantity desc limit 3;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Coimbatore |           460 |          3 |
+| Chennai    |           330 |          2 |
+| Madurai    |           210 |          2 |
++------------+---------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location order by totalQuantity desc limit 4;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Coimbatore |           460 |          3 |
+| Chennai    |           330 |          2 |
+| Madurai    |           210 |          2 |
++------------+---------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select location, sum(quantity) as totalQuantity, count(id) as totalCount from Products  group by location order by totalQuantity desc limit 1;
++------------+---------------+------------+
+| location   | totalQuantity | totalCount |
++------------+---------------+------------+
+| Coimbatore |           460 |          3 |
++------------+---------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Products;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products order by quantity;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products order by quantity asc;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products order by quantity desc;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products order by name;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products order by name desc;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products order by name limit 1;
++----+-------+-------+----------+------------+----------+------------+
+| id | name  | price | quantity | totalPrice | discount | location   |
++----+-------+-------+----------+------------+----------+------------+
+|  1 | Apple |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
++----+-------+-------+----------+------------+----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Products order by name limit 2;
++----+--------+-------+----------+------------+----------+------------+
+| id | name   | price | quantity | totalPrice | discount | location   |
++----+--------+-------+----------+------------+----------+------------+
+|  1 | Apple  |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  2 | Banana |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
++----+--------+-------+----------+------------+----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Products order by name limit 7;
++----+-----------+-------+----------+------------+----------+------------+
+| id | name      | price | quantity | totalPrice | discount | location   |
++----+-----------+-------+----------+------------+----------+------------+
+|  1 | Apple     |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  2 | Banana    |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
+|  3 | Cherry    |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  6 | Grapes    |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  5 | Mango     |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
+|  4 | Orange    |  0.60 |      120 |      72.00 |     7.20 | Madurai    |
+|  7 | Pineapple |  1.00 |       90 |      90.00 |     9.00 | Madurai    |
++----+-----------+-------+----------+------------+----------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Products order by name limit 1;
++----+-------+-------+----------+------------+----------+------------+
+| id | name  | price | quantity | totalPrice | discount | location   |
++----+-------+-------+----------+------------+----------+------------+
+|  1 | Apple |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
++----+-------+-------+----------+------------+----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Products order by name limit 2;
++----+--------+-------+----------+------------+----------+------------+
+| id | name   | price | quantity | totalPrice | discount | location   |
++----+--------+-------+----------+------------+----------+------------+
+|  1 | Apple  |  0.50 |      100 |      50.00 |     5.00 | Coimbatore |
+|  2 | Banana |  0.30 |      150 |      45.00 |     4.50 | Chennai    |
++----+--------+-------+----------+------------+----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Products order by name limit 3 offset 2;
++----+--------+-------+----------+------------+----------+------------+
+| id | name   | price | quantity | totalPrice | discount | location   |
++----+--------+-------+----------+------------+----------+------------+
+|  3 | Cherry |  0.75 |      200 |     150.00 |    15.00 | Coimbatore |
+|  6 | Grapes |  0.90 |      160 |     144.00 |    14.40 | Coimbatore |
+|  5 | Mango  |  0.80 |      180 |     144.00 |    14.40 | Chennai    |
++----+--------+-------+----------+------------+----------+------------+
+3 rows in set (0.00 sec)
