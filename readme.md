@@ -473,3 +473,75 @@ db.Sales.insertOne({
   sale_date: "2023-10-01",
 });
 ```
+
+To insert more documents into a collection:
+
+```js
+db.Sales.insertMany([
+  {
+    product_id: "687a45c1eb328d7b0ab86204",
+    sold_quantity: 5,
+    sale_date: "2023-10-02",
+  },
+  {
+    product_id: "687a4530eb328d7b0ab86201",
+    sold_quantity: 8,
+    sale_date: "2023-10-03",
+  },
+]);
+```
+
+To find all documents in a collection:
+
+```js
+db.Products.find();
+```
+
+To find specific documents in a collection:
+
+```js
+db.Products.find({ branch: "Coimbatore" });
+```
+
+To find documents with specific fields:
+
+```js
+db.Products.find({ branch: "Coimbatore" }, { name: 1, price: 1 });
+```
+
+To update a document in a collection:
+
+```js
+db.Products.updateOne(
+  {
+    name: "Apple",
+    price: 0.5,
+  },
+  {
+    $set: { price: 0.55, quantity: 120 },
+  }
+);
+```
+
+To update multiple documents in a collection:
+
+```js
+db.Products.updateMany(
+  { branch: "Chennai" },
+  {
+    $set: { branch: "Chennai Branch" },
+  }
+);
+```
+
+To delete a document from a collection:
+
+```js
+db.Products.deleteOne({ name: "Banana" });
+```
+
+To delete multiple documents from a collection:
+
+```js
+db.Products.deleteMany({ branch: "Chennai Branch" });
+```
