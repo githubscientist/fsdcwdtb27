@@ -545,3 +545,110 @@ To delete multiple documents from a collection:
 ```js
 db.Products.deleteMany({ branch: "Chennai Branch" });
 ```
+
+Operators:
+
+$eq: Equal to
+$ne: Not equal to
+$gt: Greater than
+$gte: Greater than or equal to
+$lt: Less than
+$lte: Less than or equal to
+$in: In an array
+$nin: Not in an array
+$and: Logical AND
+$or: Logical OR
+$not: Logical NOT
+$nor: Logical NOR
+
+```js
+db.Products.find({
+  branch: {
+    $eq: "Coimbatore",
+  },
+});
+```
+
+```js
+db.Products.find({
+  quantity: {
+    $gt: 90,
+  },
+});
+```
+
+```js
+db.Products.find({
+  $and: [
+    {
+      branch: {
+        $eq: "Coimbatore",
+      },
+    },
+    {
+      quantity: {
+        $gt: 150,
+      },
+    },
+  ],
+});
+```
+
+```js
+db.Products.find({
+  branch: {
+    $in: ["Coimbatore", "Chennai"],
+  },
+});
+```
+
+Pipelines:
+
+- Pipelines are used to process data in stages, allowing for complex data transformations and aggregations.
+- They are similar to SQL joins and aggregations but are more flexible and powerful.
+
+```js
+db.Products.aggregate([
+  {
+    $group: {
+      _id: "$branch",
+      totalQuantity: { $sum: "$quantity" },
+    },
+  },
+]);
+```
+
+```js
+db.Products.aggregate([
+  {
+    $group: {
+      _id: "$branch",
+      totalQuantity: { $sum: "$quantity" },
+    },
+  },
+  {
+    $sort: {
+      totalQuantity: -1,
+    },
+  },
+  {
+    $skip: 1,
+  },
+  {
+    $limit: 1,
+  },
+]);
+```
+
+```js
+db.Sales.aggregate([
+  {
+    $lookup: {
+      from: "Products",
+      localField: "product_id",
+      foreignField: "_id",
+      as: "salesData",
+    },
+  },
+]);
+```
