@@ -313,3 +313,163 @@ RIGHT JOIN Sales AS S ON P.id = S.product_id;
 Question: From Products table, find the total quanity of products available in each branch.
 
 [ ] add syntax / example for remaining queries.
+
+### MongoDB
+
+- MongoDB is a NoSQL database that uses a document-oriented data model.
+- It stores data in JSON-like documents, which allows for flexible and dynamic schemas.
+
+<!-- collection (mysql: table) -->
+
+[
+
+  <!-- document -->
+
+{
+name: 'Apple',
+quantity: 10,
+sale_date: "2023-10-01"
+},
+{
+name: 'Banana',
+quantity: 5,
+sale_date: '2023-10-02',
+specialFruit: true
+}
+]
+
+### Collection
+
+- A collection is a group of documents.
+
+### Document
+
+- A JSON like object
+
+### MongoDB Queries
+
+To list all the databases
+
+```js
+show databases;
+```
+
+or
+
+```js
+show dbs;
+```
+
+JSON data for Products table:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Apple",
+    "price": 0.5,
+    "quantity": 100,
+    "branch": "Coimbatore"
+  },
+  {
+    "id": 2,
+    "name": "Banana",
+    "price": 0.3,
+    "quantity": 150,
+    "branch": "Chennai"
+  },
+  {
+    "id": 3,
+    "name": "Cherry",
+    "price": 0.75,
+    "quantity": 200,
+    "branch": "Coimbatore"
+  },
+  {
+    "id": 4,
+    "name": "Orange",
+    "price": 0.6,
+    "quantity": 120,
+    "branch": "Madurai"
+  },
+  {
+    "id": 5,
+    "name": "Mango",
+    "price": 0.8,
+    "quantity": 180,
+    "branch": "Chennai"
+  },
+  {
+    "id": 6,
+    "name": "Grapes",
+    "price": 0.9,
+    "quantity": 160,
+    "branch": "Coimbatore"
+  },
+  {
+    "id": 7,
+    "name": "Pineapple",
+    "price": 1.0,
+    "quantity": 90,
+    "branch": "Madurai"
+  }
+]
+```
+
+To view all the databases:
+
+```js
+show dbs;
+```
+
+or
+
+```js
+show databases;
+```
+
+To create a new database:
+
+```js
+use my_database;
+```
+
+To view the current database:
+
+```js
+db;
+```
+
+To switch to a specific database:
+
+```js
+use my_database;
+```
+
+To create a new collection (similar to a table in MySQL):
+
+```js
+db.createCollection("Products");
+```
+
+To drop a collection:
+
+```js
+db.Products.drop();
+```
+
+To drop a database:
+
+```js
+db.dropDatabase();
+```
+
+To insert a single document into a collection:
+
+```js
+db.Sales.insertOne({
+  product_id: "687a4530eb328d7b0ab86201",
+  sold_quantity: 10,
+  sale_date: "2023-10-01",
+});
+```
