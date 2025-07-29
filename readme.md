@@ -652,3 +652,24 @@ db.Sales.aggregate([
   },
 ]);
 ```
+
+```js
+db.Products.aggregate([
+  {
+    $group: {
+      _id: "$branch",
+      totalQuantity: {
+        $sum: "$quantity",
+      },
+    },
+  },
+  {
+    $sort: {
+      totalQuantity: 1,
+    },
+  },
+  {
+    $limit: 1,
+  },
+]);
+```
